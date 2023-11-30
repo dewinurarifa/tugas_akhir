@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kontraks', function (Blueprint $table) {
+        Schema::create('penggajians', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_karyawan')->constrained('karyawans');
-            $table->datetime('awal_kontrak');
-            $table->datetime('akhir_kontrak');
-            $table->integer('total_jam_kerja');
-            $table->bigInteger('gaji_pokok');
+            $table->foreignId('id_kontrak')->constrained('kontraks');
+            $table->unsignedBigInteger('tunjangan');
+            $table->unsignedBigInteger('total_gaji');
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kontraks');
+        Schema::dropIfExists('penggajians');
     }
 };

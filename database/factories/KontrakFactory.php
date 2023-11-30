@@ -17,7 +17,11 @@ class KontrakFactory extends Factory
     public function definition(): array
     {
         return [
-            // 'id_karyawan' => fake()->randomElements([1,2,3,4,5]),
+            'id_karyawan' => fake()->randomElement([1,2,3,4,5]),
+            'awal_kontrak' => fake()->dateTime(),
+            'akhir_kontrak' => fake()->dateTime(),
+            'total_jam_kerja' => fake()->randomNumber(),
+            'gaji_pokok' => fake()->randomNumber(),
         ];
     }
 }

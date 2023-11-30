@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\CutiController;
+use App\Http\Controllers\PenggajianController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/karyawan', App\Http\Controllers\KaryawanController::class);
-Route::resource('/cuti', App\Http\Controllers\CutiController::class);
+Route::resource('/karyawan', KaryawanController::class);
+Route::resource('/cuti', CutiController::class);
+Route::resource('/penggajian', PenggajianController::class);
