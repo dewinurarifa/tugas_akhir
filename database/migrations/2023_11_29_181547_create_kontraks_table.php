@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('kontraks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_karyawan')->constrained('karyawans')->onDelete('cascade');
-            $table->datetime('awal_kontrak');
-            $table->datetime('akhir_kontrak');
+            $table->date('awal_kontrak');
+            $table->date('akhir_kontrak');
             $table->integer('total_jam_kerja');
             $table->bigInteger('gaji_pokok');
             $table->timestamps();

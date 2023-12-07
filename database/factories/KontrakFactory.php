@@ -18,8 +18,8 @@ class KontrakFactory extends Factory
     {
         return [
             'id_karyawan' => fake()->randomElement([1,2,3,4,5]),
-            'awal_kontrak' => fake()->dateTime(),
-            'akhir_kontrak' => fake()->dateTime(),
+            'awal_kontrak' => fake()->date(),
+            'akhir_kontrak' => fake()->date(),
             'total_jam_kerja' => fake()->randomNumber(),
             'gaji_pokok' => fake()->randomNumber(),
         ];

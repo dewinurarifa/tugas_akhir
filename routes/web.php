@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\CutiController;
+use App\Http\Controllers\KontrakController;
 use App\Http\Controllers\PenggajianController;
 
 /*
@@ -22,4 +23,5 @@ Route::get('/', function () {
 
 Route::resource('/karyawan', KaryawanController::class);
 Route::resource('/cuti', CutiController::class);
+Route::resource('/kontrak', KontrakController::class);
 Route::resource('/penggajian', PenggajianController::class);

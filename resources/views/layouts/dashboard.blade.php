@@ -15,6 +15,9 @@
             <li class="nav-item">
                 <a href="/cuti" class="nav-link">Cuti</a>
             </li>
+            <li class="nav-item">
+                <a href="/kontrak" class="nav-link">Kontrak</a>
+            </li>
         </ul>
     </div>
 </nav>

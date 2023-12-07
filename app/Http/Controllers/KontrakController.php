@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Kontrak;
 use App\Http\Requests\StoreKontrakRequest;
 use App\Http\Requests\UpdateKontrakRequest;
+use App\Http\Resources\KaryawanResource;
+use App\Http\Resources\KontrakResource;
+use App\Models\Karyawan;
 
 class KontrakController extends Controller
 {
@@ -13,7 +16,9 @@ class KontrakController extends Controller
      */
     public function index()
     {
-        //
+        return view('kontrak.index', [
+            'kontraks' => KontrakResource::collection(Kontrak::with(['karyawan'])->latest()->get())
+        ]);
     }
 
     /**
@@ -21,7 +26,9 @@ class KontrakController extends Controller
      */
     public function create()
     {
-        //
+        return view('kontrak.create', [
+            'karyawans' => KaryawanResource::collection(Karyawan::latest()->get())
+        ]);
     }
 
     /**
@@ -29,7 +36,8 @@ class KontrakController extends Controller
      */
     public function store(StoreKontrakRequest $request)
     {
-        //
+        Kontrak::create($request->validated());
+        return redirect()->route('kontrak.index')->with('success', "Kontrak berhasil ditambah");;
     }
 
     /**
@@ -45,7 +53,10 @@ class KontrakController extends Controller
      */
     public function edit(Kontrak $kontrak)
     {
-        //
+        return view('kontrak.edit', [
+            'kontrak' => new KontrakResource($kontrak),
+            'karyawans' => KaryawanResource::collection(Karyawan::all())
+        ]);
     }
 
     /**
@@ -53,7 +64,9 @@ class KontrakController extends Controller
      */
     public function update(UpdateKontrakRequest $request, Kontrak $kontrak)
     {
-        //
+        $updated_kontrak = new KontrakResource(tap($kontrak)->update($request->validated()));
+        $nama_karyawan = $updated_kontrak->karyawan->nama;
+        return redirect()->route('kontrak.index')->with('success', "Kontrak karyawan $nama_karyawan berhasil diubah");
     }
 
     /**
@@ -61,6 +74,7 @@ class KontrakController extends Controller
      */
     public function destroy(Kontrak $kontrak)
     {
-        //
+        $kontrak->delete();
+        return redirect()->route('kontrak.index')->with('success', "Kontrak berhasil dihapus");;
     }
 }
