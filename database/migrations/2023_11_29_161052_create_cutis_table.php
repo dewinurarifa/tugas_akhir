@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('saldo_cuti');
             $table->integer('jatah_cuti');
-            $table->foreignId('id_karyawan')->constrained('karyawans');
+            $table->foreignId('id_karyawan')->constrained('karyawans')->onDelete('cascade');
             $table->timestamps();
         });
     }

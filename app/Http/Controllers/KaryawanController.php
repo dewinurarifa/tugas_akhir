@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Karyawan;
 use App\Http\Requests\StoreKaryawanRequest;
 use App\Http\Requests\UpdateKaryawanRequest;
+use App\Http\Resources\KaryawanResource;
 
 class KaryawanController extends Controller
 {
@@ -13,7 +14,9 @@ class KaryawanController extends Controller
      */
     public function index()
     {
-        //
+        return view('karyawan.index', [
+            'karyawans'=> KaryawanResource::collection(Karyawan::latest()->get())
+        ]);
     }
 
     /**
@@ -21,7 +24,7 @@ class KaryawanController extends Controller
      */
     public function create()
     {
-        //
+        return view('karyawan.create');
     }
 
     /**
@@ -29,7 +32,8 @@ class KaryawanController extends Controller
      */
     public function store(StoreKaryawanRequest $request)
     {
-        //
+        Karyawan::create($request->validated());
+        return redirect()->route('karyawan.index')->with('success', "Karyawan berhasil ditambah");;
     }
 
     /**
@@ -45,7 +49,9 @@ class KaryawanController extends Controller
      */
     public function edit(Karyawan $karyawan)
     {
-        //
+        return view('karyawan.edit', [
+            'karyawan' => new KaryawanResource($karyawan),
+        ]);
     }
 
     /**
@@ -53,7 +59,9 @@ class KaryawanController extends Controller
      */
     public function update(UpdateKaryawanRequest $request, Karyawan $karyawan)
     {
-        //
+        $updated_karyawan = new KaryawanResource(tap($karyawan)->update($request->validated()));
+        $nama_karyawan = $updated_karyawan->nama;
+        return redirect()->route('karyawan.index')->with('success', "Karyawan $nama_karyawan berhasil diubah");
     }
 
     /**
@@ -61,6 +69,7 @@ class KaryawanController extends Controller
      */
     public function destroy(Karyawan $karyawan)
     {
-        //
+        $karyawan->delete();
+        return redirect()->route('karyawan.index')->with('success', "Karyawan berhasil dihapus");;
     }
 }

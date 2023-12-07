@@ -22,7 +22,11 @@ class StoreKaryawanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nama' => ['required', 'string'],
+            'tempat_lahir' => ['required', 'string'],
+            'tanggal_lahir' => ['required', 'string'],
+            'alamat' => ['required', 'string'],
+            'jabatan' => ['required', 'string'],
         ];
     }
 }
