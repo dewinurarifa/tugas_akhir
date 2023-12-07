@@ -18,6 +18,9 @@
             <li class="nav-item">
                 <a href="/kontrak" class="nav-link">Kontrak</a>
             </li>
+            <li class="nav-item">
+                <a href="/penggajian" class="nav-link">Penggajian</a>
+            </li>
         </ul>
     </div>
 </nav>
