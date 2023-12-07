@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('penggajians', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_kontrak')->constrained('kontraks');
+            $table->foreignId('id_kontrak')->constrained('kontraks')->onDelete('cascade');
             $table->unsignedBigInteger('tunjangan');
             $table->unsignedBigInteger('total_gaji');
             $table->timestamps();
