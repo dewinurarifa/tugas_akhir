@@ -1,2 +1,2 @@
-const ipv4 = '192.168.0.14';
-const String baseUrl = 'http://$ipv4/hrd/tugas_akhir/public/api';
+const ipv4 = '192.168.122.248';
+const String baseUrl = 'http://$ipv4/tugas_akhir/tugas_akhir/public/api';
