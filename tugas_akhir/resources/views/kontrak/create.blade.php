@@ -2,7 +2,7 @@
 
 @section('dashboard-content')
 <div class="d-flex gap-3">
-    <h5>Tambah Karyawan</h5>
+    <h5>Tambah Kontrak</h5>
 </div>
 <form action="{{route('kontrak.store')}}" method="post">
     @csrf

@@ -2,7 +2,7 @@
 
 @section('dashboard-content')
 <div class="d-flex gap-3">
-    <h5>Edit Karyawan</h5>
+    <h5>Edit Cuti</h5>
 </div>
 <form action="{{route('cuti.update', [$cuti])}}" method="post">
     @csrf

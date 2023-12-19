@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             CutiSeeder::class,
             KontrakSeeder::class,
             PenggajianSeeder::class,
+            PresensiSeeder::class,
         ]);
     }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\CutiController;
 use App\Http\Controllers\KontrakController;
 use App\Http\Controllers\PenggajianController;
+use App\Http\Controllers\PresensiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,4 @@ Route::resource('/karyawan', KaryawanController::class);
 Route::resource('/cuti', CutiController::class);
 Route::resource('/kontrak', KontrakController::class);
 Route::resource('/penggajian', PenggajianController::class);
+Route::resource('/presensi', PresensiController::class);

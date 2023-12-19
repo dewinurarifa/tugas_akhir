@@ -21,6 +21,9 @@
             <li class="nav-item">
                 <a href="/penggajian" class="nav-link">Penggajian</a>
             </li>
+            <li class="nav-item">
+                <a href="/presensi" class="nav-link">Presensi</a>
+            </li>
         </ul>
     </div>
 </nav>
